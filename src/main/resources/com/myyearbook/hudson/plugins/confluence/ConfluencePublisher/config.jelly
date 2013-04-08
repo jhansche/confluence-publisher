@@ -30,10 +30,16 @@
             checked="${instance.shouldAttachArchivedArtifacts()}" default="true" />
     </f:entry>
 
+	<f:entry title="" field="replaceAttachments">
+        <f:checkbox title="Replace file if it's already exist"
+            checked="${instance.shouldReplaceAttachments()}" default="false" />
+    </f:entry>
+    
     <f:entry title="Other files to attach" field="fileSet">
         <f:textbox />
     </f:entry>
-
+	
+	
     <f:entry title="Wiki Markup Replacements" help="${descriptor.getHelpFile('editorList')}">
         <f:hetero-list name="editorList" hasHeader="true"
             descriptors="${descriptor.getEditors()}" items="${instance.configuredEditors}"

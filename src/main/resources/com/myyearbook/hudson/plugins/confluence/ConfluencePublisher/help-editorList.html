@@ -2,6 +2,9 @@
 Configure wiki markup generation and replacement/insertion settings.
 <p />
 Available markup generators:<ul>
+	<p>You can get uploaded attachments links. Variable like $LINK[n] will be replaced with link which match uploaded attachment link.
+	Where <b>n</b> is position number of attached file(if uploaded one file n only 0, if more then one link provided in uploading order).  
+	Can be used in markup like <p> &lt;a href=&quot;$LINK[0]&quot;&gt;$JOB_NAME build&lt;/a&gt;</p></p>
   <li><b>Plain text</b><br />
       Enter custom text for the replacement.  Build variables in the replacement text will be expanded.</li>
 </ul>
