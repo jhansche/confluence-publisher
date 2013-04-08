@@ -169,7 +169,7 @@ public class ConfluenceSession {
         attachment.setFileSize(bytes.length);
         attachment.setContentType(contentType);
         attachment.setComment(comment);
-        return this.service.addAttachment(this.token, attachment, bytes);
+        return this.service.addAttachment(this.token, pageId, attachment, bytes);
     }
 
     /**
@@ -225,7 +225,22 @@ public class ConfluenceSession {
 
         return addAttachment(pageId, file.getName(), contentType, comment, data);
     }
-
+    
+   /**
+    * Remove attachments
+    * 
+    * @param pageId
+    * @param attachment
+    * @return
+ * @throws RemoteException 
+ * @throws jenkins.plugins.confluence.soap.v1.RemoteException 
+    * @throws FileNotFoundException
+    * @throws IOException
+    */
+    public boolean removeAttachment(long pageId, RemoteAttachment attachment) throws jenkins.plugins.confluence.soap.v1.RemoteException, RemoteException{
+        return this.service.removeAttachment(token, attachment.getPageId(), attachment.getFileName());
+    }
+    
     /**
      * Sanitize the attached filename, per Confluence restrictions
      *
